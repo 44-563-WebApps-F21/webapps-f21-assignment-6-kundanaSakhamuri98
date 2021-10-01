@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Web Apps Assignment 6</title>
+     
+</head>
+<body>
+    <header>
+        <h2>Pass phrase by by Sai Lakshmi Kundana Sakhamuri</h2>
+    </header>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for = "secret_phase">Enter the secret phrase</label>
+    <input type = "password" value = "Let me in" id="secret_phase"> <br>
+
+    <label for = "phase">Enter a phrase</label>
+    <input type = "text" value = "password" id="phase"> <br>
+
+    <input type = "button" onclick="processPhrase()" value="Check the phrase"> <br>
+
+    <p id="result_id">View the count here</p>
+
+</form>
+
+<script> 
+var correct = 0;
+var wrong = 0;
+function processPhrase(){
+    var s_ph = document.getElementById("secret_phase").value;
+    var ph = document.getElementById("phase").value;
+
+    if(s_ph == ph){  
+        correct=correct+1;
+        alert ("Access allowed");
+    }
+    else{  
+        wrong=wrong+1;
+        alert ("Access denied");
+    }
+    document.getElementById("result_id").innerHTML = "Correct count: "+correct+" Wrong count: "+ wrong;
+}
+
+</script>
+
+</body>
+</html> 
