@@ -24,6 +24,10 @@
 
 </form>
 
+<div class = "container">
+    <img src="monkey1.jpg" height = "200" width = "200" onclick = "newImage()" id="animal_image">
+</div>
+
 <script> 
 var correct = 0;
 var wrong = 0;
@@ -40,6 +44,24 @@ function processPhrase(){
         alert ("Access denied");
     }
     document.getElementById("result_id").innerHTML = "Correct count: "+correct+" Wrong count: "+ wrong;
+}
+var usingImage=1
+function newImage(){
+    switch (usingImage)
+    {
+    case 1 : document.getElementById("animal_image").src = "sheep.jpg"
+               usingImage = usingImage +1;
+               break;
+    
+    case 2 : document.getElementById("animal_image").src = "antelope.jpg"
+               usingImage = usingImage +1;
+               break;
+
+    case 3  : document.getElementById("animal_image").src = "horse.jpg"
+               usingImage = usingImage +1;
+               break;
+    }
+
 }
 
 </script>
