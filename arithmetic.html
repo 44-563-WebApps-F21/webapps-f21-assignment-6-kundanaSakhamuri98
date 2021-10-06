@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Arithmetic</title>         
+    <title>Arithmetic Operations</title>         
 </head>
 <body>
     <header>
@@ -19,6 +19,8 @@
 
     <input type="button" onclick="resolveForm()" value="Get values from form">
 </form>
+<p id="result">This text will be replaced </p>
+
 <br>
 <form>
     <label for="form1_base">Enter a base</label>
@@ -29,13 +31,45 @@
 
     <input type="button" onclick="powers()" value="Compute">
 
-    <p id="final_value">This text will give the compute results</p>
+    <p id="exponent_value">This text will give the compute results</p>
 </form>
 
-<p id="power_value">This text will be replaced </p>
+<form > 
+    <input type="radio" id="+" name="calculation" value="plus" onclick="processRadio()">
+    <label for="+">Addition</label></br>
+
+    <input type="radio" id="-" name="calculation" value="minus" onclick="processRadio()">
+    <label for="-">Subtraction</label></br>
+
+    <input type="radio" id="*" name="calculation" value="times" onclick="processRadio()">
+    <label for="*">Multiplication</label></br>
+
+    <input type="radio" id="/" name="calculation" value="divide" onclick="processRadio()">
+    <label for="">Division</label></br>
+
+    <p id="arthimetic_result">This text will give the results</p>
+</form>
 
 <script> 
-
+function processRadio(){
+    var num1 = document.getElementById("base").value;
+    var num2 = document.getElementById("exponent").value;
+    var res = 0;
+    out = document.getElementById("res")
+    if (document.getElementById("+").checked) {
+        res = parseFloat(num1) + parseFloat(num2);
+    }
+    if (document.getElementById("-").checked) {
+        res = num1 - num2;
+    }
+    if (document.getElementById("*").checked) {
+        res = num1 * num2;
+    }
+    if (document.getElementById("/").checked) {
+        res = num1 / num2;
+    }
+    document.getElementById("arthimetic_result").innerHTML = res;          
+}
 function resolveForm (){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
@@ -59,7 +93,7 @@ function powers(){
             result = input_base;
         else
             result = result + " " + Math.pow(input_base, i);
-        document.getElementById("final_value").innerHTML = result;
+        document.getElementById("exponent_value").innerHTML = result;
     }
 }
 </script>
