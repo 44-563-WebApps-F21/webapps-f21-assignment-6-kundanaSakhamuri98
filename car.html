@@ -7,19 +7,8 @@
     <header>
         <h2>Sai Lakshmi Kundana Sakhamuri orders a car </h2>
       </header>
-<h2>Getting input</h2>
 
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
-
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
-
-
+<br>
 <p id="result">This text will be replaced </p>
 
 <form>
@@ -35,6 +24,18 @@
     <input type="button" onclick="orderCar()" value="Order a car">
 </form>
 <p id="car_obj">This text will give the results of ordering a car</p>
+
+<br>
+<form>
+    <label for="form_property">Enter a property</label>
+    <input type="text" id="form_property" name="property" value=color> <br>
+
+    <label for="form_value">Enter a value</label>
+    <input type="text" id="form_value" name="value"> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form>
+
 
 <script>
 var my_car = {}
@@ -55,19 +56,14 @@ function orderCar(){
         document.getElementById("car_obj").innerHTML = "electric: " + my_car.electric + "   ac: " + my_car.ac + "   gps: " + my_car.gps;
 }
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
+function updateCar()
+{
+    var property = document.getElementById("form_property").value;
+    var value = document.getElementById("form_value").value;
+    my_car[property] = value;
+    document.getElementById("car_obj").innerHTML = "my_car[]=  " + JSON.stringify(my_car);
 }
+
 </script>
 
 </body>
