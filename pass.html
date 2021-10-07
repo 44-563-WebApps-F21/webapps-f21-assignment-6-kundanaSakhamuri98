@@ -9,8 +9,6 @@
         <h2>Pass phrase by by Sai Lakshmi Kundana Sakhamuri</h2>
     </header>
 
-<h2>Getting input</h2>
-
 <form>
     <label for = "secret_phase">Enter the secret phrase</label>
     <input type = "password" value = "Let me in" id="secret_phase"> <br>
@@ -34,30 +32,34 @@ var wrong = 0;
 function processPhrase(){
     var s_ph = document.getElementById("secret_phase").value;
     var ph = document.getElementById("phase").value;
+    var count = 0;
 
     if(s_ph == ph){  
         correct=correct+1;
         alert ("Access allowed");
     }
-    else{  
+    else{
         wrong=wrong+1;
         alert ("Access denied");
+        if(wrong == 3)
+        alert ("Account Locked");
     }
     document.getElementById("result_id").innerHTML = "Correct count: "+correct+" Wrong count: "+ wrong;
+    
 }
 var usingImage=1
 function newImage(){
     switch (usingImage)
     {
-    case 1 : document.getElementById("animal_image").src = "sheep.jpg"
+    case 1 : document.getElementById("animal_image").src = "sheep.jpg";
                usingImage = usingImage +1;
                break;
     
-    case 2 : document.getElementById("animal_image").src = "antelope.jpg"
+    case 2 : document.getElementById("animal_image").src = "antelope.jpg";
                usingImage = usingImage +1;
                break;
 
-    case 3  : document.getElementById("animal_image").src = "horse.jpg"
+    case 3  : document.getElementById("animal_image").src = "horse.jpg";
                usingImage = usingImage +1;
                break;
     }
